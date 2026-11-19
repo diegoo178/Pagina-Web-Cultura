@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigación ODS 8 | Cultura Digital UDLAP - Equipo 4</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        udlap: {
+                            orange: '#e05a47',
+                            burgundy: '#800020',
+                            dark: '#1e293b'
+                        },
+                        ods: {
+                            8: '#a21942',
+                            8hover: '#871335',
+                            light: '#fdf2f4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-ods-solid {
+            background-color: #8f1438;
+        }
+        .tab-active {
+            border-bottom: 3px solid #a21942;
+            color: #a21942;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 antialiased selection:bg-ods-8 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-ods-8 flex items-center justify-center text-white font-bold text-xl shadow-md">
+                        8
+                    </div>
+                    <div>
+                        <span class="block text-xs font-bold uppercase tracking-wider text-ods-8">Cultura Digital</span>
+                        <span class="block text-sm font-extrabold text-gray-900">UDLAP • Equipo 4</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-gray-600">
+                    <a href="#inicio" class="hover:text-ods-8 transition">Inicio</a>
+                    <a href="#equipo" class="hover:text-ods-8 transition">Equipo</a>
+                    <a href="#contexto" class="hover:text-ods-8 transition">Contexto</a>
+                    <a href="#pregunta" class="hover:text-ods-8 transition">Objetivos</a>
+                    <a href="#metodologia" class="hover:text-ods-8 transition">Metodología</a>
+                    <a href="#estado-arte" class="hover:text-ods-8 transition">Estado del Arte</a>
+                    <a href="#hallazgos" class="hover:text-ods-8 transition">Hallazgos</a>
+                    <a href="#conclusiones" class="hover:text-ods-8 transition">Conclusión</a>
+                    <a href="#referencias" class="hover:text-ods-8 transition">Referencias</a>
+                    <a href="#ia-bitacora" class="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700 hover:bg-ods-8 hover:text-white transition">Uso IA</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-ods-8 focus:outline-none p-2 rounded-lg">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-2">
+            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-ods-light hover:text-ods-8">Inicio</a>
+            <a href="#equipo" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-ods-light hover:text-ods-8">Quiénes Somos</a>
+            <a href="#contexto" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-ods-light hover:text-ods-8">Contexto y Delimitación</a>
+            <a href="#pregunta" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-ods-light hover:text-ods-8">Pregunta y Objetivos</a>
+            <a href="#metodologia" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-ods-light hover:text-ods-8">Metodología</a>
+            <a href="#estado-arte" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-ods-light hover:text-ods-8">Estado del Arte</a>
+            <a href="#hallazgos" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-ods-light hover:text-ods-8">Hallazgos e Interpretación</a>
+            <a href="#conclusiones" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-ods-light hover:text-ods-8">Discusión y Conclusión</a>
+            <a href="#referencias" class="mobile-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-ods-light hover:text-ods-8">Referencias Bibliográficas</a>
+            <a href="#ia-bitacora" class="mobile-link block px-3 py-2 rounded-md font-medium text-ods-8 bg-ods-light">Declaración de Uso de IA</a>
+        </div>
+    </header>
+
+    <!-- Hero Section (Color sólido de alto contraste) -->
+    <section id="inicio" class="bg-slate-900 text-white py-20 lg:py-28 border-b-4 border-ods-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="bg-ods-8 text-white text-xs font-extrabold uppercase px-3 py-1.5 rounded-full tracking-wider shadow-sm">
+                        <i class="fa-solid fa-bullseye mr-1"></i> ODS 8: Meta 8.5
+                    </span>
+                    <span class="bg-slate-800 text-gray-100 text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-700">
+                        Investigación Académica UDLAP • Otoño 2026
+                    </span>
+                </div>
+                
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-6 text-white">
+                    Expectativas Salariales de Egresados Universitarios y la Oferta del Mercado Laboral en México
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed">
+                    Un análisis crítico sobre el choque de expectativas, sobreeducación y empleabilidad en el marco del desarrollo de empleo pleno, productivo y trabajo decente.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#hallazgos" class="bg-ods-8 hover:bg-ods-8hover text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition flex items-center">
+                        Explorar Hallazgos <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#contexto" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-3.5 rounded-xl border border-slate-600 transition">
+                        Ver Contexto del Problema
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quienes Somos / Equipo -->
+    <section id="equipo" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-ods-8 mb-2">Proyecto de Investigación</h2>
+                <h3 class="text-3xl font-extrabold text-gray-900">Equipo 4 • Sección 18</h3>
+                <p class="text-gray-600 mt-3">Estudiantes a cargo de la formulación, recolección, síntesis e integración del documento formal de investigación.</p>
+            </div>
+
+            <!-- Photoframing & Course Info Banner -->
+            <div class="bg-slate-100 rounded-2xl border border-gray-200 p-6 md:p-8 mb-12 shadow-sm">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7">
+                        <div class="relative rounded-xl overflow-hidden shadow-md bg-slate-800 aspect-video flex flex-col items-center justify-center border border-gray-300">
+                            <!-- Espacio para la fotografía grupal del equipo (reemplazar src con la ruta de su foto) -->
+                            <img src="fotogrupal.jpeg" 
+                                 alt="Equipo 4 UDLAP" 
+                                 class="w-full h-full object-cover">
+                            
+                            <!-- Pie de foto limpio -->
+                            <div class="w-full bg-slate-900 p-4 text-white border-t border-slate-700">
+                                <p class="text-sm font-bold text-white">Equipo 4 - Cultura Digital (Sección 18)</p>
+                                <p class="text-xs text-gray-300">Universidad de las Américas Puebla (UDLAP)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="inline-block bg-ods-light text-ods-8 text-xs font-bold px-3 py-1 rounded-full border border-pink-200">
+                            Detalles del Curso
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900">Cultura Digital </h4>
+                        <div class="space-y-3 text-sm text-gray-700">
+                            <p><strong class="text-gray-900"><i class="fa-solid fa-chalkboard-user mr-2 text-ods-8"></i>Docente:</strong> Mtra. Dulce Karina Trejo Tlapa</p>
+                            <p><strong class="text-gray-900"><i class="fa-solid fa-building-columns mr-2 text-ods-8"></i>Institución:</strong> Universidad de las Américas Puebla (UDLAP)</p>
+                            <p><strong class="text-gray-900"><i class="fa-solid fa-calendar mr-2 text-ods-8"></i>Periodo:</strong> Semestre Otoño 2026</p>
+                            <p><strong class="text-gray-900"><i class="fa-solid fa-bullseye mr-2 text-ods-8"></i>Marco de Trabajo:</strong> Agenda 2030 - ODS 8 (Meta 8.5)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!-- Integrantes Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Member 1 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition text-center border-t-4 border-t-ods-8 flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-ods-8 shadow-sm bg-slate-200">
+                        <!-- Reemplazar src con la ruta de la foto individual (ej. diego.jpg) -->
+                        <img src="https://placehold.co/200x200/8f1438/ffffff?text=DS" 
+                             alt="Diego Salvador Huerta Sánchez" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base mb-1">Diego Salvador Huerta Sánchez</h4>
+                    <p class="text-xs font-medium text-ods-8 mb-1">Ingeniería Civil</p>
+                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">ID: 193989</p>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition text-center border-t-4 border-t-ods-8 flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-ods-8 shadow-sm bg-slate-200">
+                        <!-- Reemplazar src con la ruta de la foto individual (ej. daniela.jpg) -->
+                        <img src="https://placehold.co/200x200/8f1438/ffffff?text=DG" 
+                             alt="Daniela González Cuellar" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base mb-1">Daniela González Cuellar</h4>
+                    <p class="text-xs font-medium text-ods-8 mb-1">Estrategias Financieras y Contaduría Pública</p>
+                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">ID: 194224</p>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition text-center border-t-4 border-t-ods-8 flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-ods-8 shadow-sm bg-slate-200">
+                        <!-- Reemplazar src con la ruta de la foto individual (ej. ariadna.jpg) -->
+                        <img src="https://placehold.co/200x200/8f1438/ffffff?text=AO" 
+                             alt="Ariadna Lizeth Ostos Sánchez" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base mb-1">Ariadna Lizeth Ostos Sánchez</h4>
+                    <p class="text-xs font-medium text-ods-8 mb-1">Ingeniería Mecatrónica</p>
+                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">ID: 194540</p>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition text-center border-t-4 border-t-ods-8 flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-ods-8 shadow-sm bg-slate-200">
+                        <!-- Reemplazar src con la ruta de la foto individual (ej. ximena.jpg) -->
+                        <img src="https://placehold.co/200x200/8f1438/ffffff?text=XR" 
+                             alt="Ximena Rojas Ramírez" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-base mb-1">Ximena Rojas Ramírez</h4>
+                    <p class="text-xs font-medium text-ods-8 mb-1">Biología</p>
+                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">ID: 191394</p>
+                </div>
+            </div>
+    </section>
+
+    <!-- Contexto y Delimitación del Problema -->
+    <section id="contexto" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Introducción y Contexto -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-ods-8">Antecedentes y Alcance</span>
+                        <h2 class="text-3xl font-extrabold text-gray-900 mt-2">Contexto y Delimitación del Problema</h2>
+                    </div>
+                    
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        La transición entre la educación superior y el mercado laboral constituye una etapa crítica en el desarrollo personal y socioeconómico de los jóvenes universitarios. En el contexto del <strong>Objetivo de Desarrollo Sostenible 8 (ODS 8)</strong> de la ONU, la Meta 8.5 promueve el empleo pleno, productivo y el trabajo decente para todas las personas, incluidos los jóvenes, así como la igualdad de remuneración por trabajo de igual valor.
+                    </p>
+                    
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        En el mercado laboral mexicano, la obtención de un título universitario tradicionalmente se ha percibido como una garantía de movilidad social y altos ingresos. No obstante, indicadores oficiales como la <strong>ENOE (INEGI)</strong> y la <strong>Encuesta Nacional de Egresados (UVM)</strong> demuestran que la oferta de profesionales supera la disponibilidad de plazas con sueldos proporcionales al nivel educativo, generando el fenómeno conocido como <em>"choque de expectativas"</em>.
+                    </p>
+                </div>
+
+                <!-- Tarjeta de Delimitación -->
+                <div class="lg:col-span-5 bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm space-y-5">
+                    <h3 class="text-lg font-bold text-gray-900 border-b border-gray-100 pb-3 flex items-center">
+                        <i class="fa-solid fa-crosshairs text-ods-8 mr-2"></i> Delimitación del Estudio
+                    </h3>
+                    
+                    <div class="space-y-4 text-xs">
+                        <div class="flex items-start space-x-3">
+                            <span class="w-7 h-7 rounded-lg bg-ods-light text-ods-8 flex items-center justify-center shrink-0 font-bold">
+                                <i class="fa-solid fa-users"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Población</h4>
+                                <p class="text-gray-600 mt-0.5">Jóvenes egresados de educación superior en México.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <span class="w-7 h-7 rounded-lg bg-ods-light text-ods-8 flex items-center justify-center shrink-0 font-bold">
+                                <i class="fa-solid fa-magnifying-glass-dollar"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Fenómeno Analizado</h4>
+                                <p class="text-gray-600 mt-0.5">El desfase entre las expectativas salariales iniciales y las remuneraciones reales del mercado laboral.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <span class="w-7 h-7 rounded-lg bg-ods-light text-ods-8 flex items-center justify-center shrink-0 font-bold">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Alcance Temporal y Geográfico</h4>
+                                <p class="text-gray-600 mt-0.5">Indicadores y estudios nacionales recientes sobre inserción laboral en México (periodo 2008–2026).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <span class="w-7 h-7 rounded-lg bg-gray-100 text-gray-600 flex items-center justify-center shrink-0 font-bold">
+                                <i class="fa-solid fa-ban"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Exclusiones</h4>
+                                <p class="text-gray-600 mt-0.5">No se evalúan programas de empleo en educación técnica básica ni dinámicas laborales exclusivas de otros países, salvo para fines comparativos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pregunta y Objetivos (Color sólido con alto contraste) -->
+    <section id="pregunta" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-xl border-t-8 border-ods-8">
+                <div class="max-w-3xl mb-10">
+                    <span class="text-xs font-bold uppercase tracking-widest text-pink-300">Núcleo Teórico</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mt-2 mb-4 text-white">Pregunta Central de Investigación</h2>
+                    <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700 text-lg sm:text-xl font-medium leading-relaxed italic text-white">
+                        "¿Cómo influyen las expectativas salariales de los egresados frente a la oferta del mercado laboral actual?"
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-700">
+                    <div class="md:col-span-3">
+                        <h3 class="text-lg font-bold text-white mb-2 flex items-center">
+                            <i class="fa-solid fa-compass text-pink-400 mr-2"></i> Objetivo General
+                        </h3>
+                        <p class="text-gray-200 text-sm leading-relaxed">
+                            Analizar la influencia de las expectativas salariales de los egresados universitarios frente a las remuneraciones y condiciones reales ofrecidas por el mercado laboral en México, en el marco de la Meta 8.5 del ODS 8.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-800 p-5 rounded-xl border border-slate-700">
+                        <div class="text-xs font-bold text-pink-300 mb-1">Objetivo Específico 1</div>
+                        <p class="text-xs text-gray-200">Identificar las principales brechas entre los ingresos esperados por los estudiantes universitarios y las primas salariales reales al momento de su incorporación laboral.</p>
+                    </div>
+
+                    <div class="bg-slate-800 p-5 rounded-xl border border-slate-700">
+                        <div class="text-xs font-bold text-pink-300 mb-1">Objetivo Específico 2</div>
+                        <p class="text-xs text-gray-200">Evaluar el impacto de la experiencia laboral previa y la adquisición de competencias técnicas especializadas sobre la empleabilidad y la negociación salarial.</p>
+                    </div>
+
+                    <div class="bg-slate-800 p-5 rounded-xl border border-slate-700">
+                        <div class="text-xs font-bold text-pink-300 mb-1">Objetivo Específico 3</div>
+                        <p class="text-xs text-gray-200">Explicar las implicaciones de la sobreeducación y la rigidez salarial estructural en la consecución del trabajo decente para los jóvenes en México.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodología -->
+    <section id="metodologia" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-ods-8 mb-2">Estrategia Sistemática</h2>
+                <h3 class="text-3xl font-extrabold text-gray-900">Metodología de Búsqueda y Selección</h3>
+                <p class="text-gray-600 mt-2 text-sm">Recuperación de evidencia científica garantizando trazabilidad y rigor académico.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Metabuscadores -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm space-y-4">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-lg">Bases y Metabuscadores</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Búsquedas cruzadas en el catálogo de Biblioteca UDLAP (Primo exlibris), Google Académico, SciELO, ProQuest, JSTOR y Wiley.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-700 px-2 py-0.5 rounded">Primo UDLAP</span>
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-700 px-2 py-0.5 rounded">JSTOR</span>
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-700 px-2 py-0.5 rounded">SciELO</span>
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-700 px-2 py-0.5 rounded">Wiley</span>
+                    </div>
+                </div>
+
+                <!-- Operadores Booleanos -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm space-y-4">
+                    <div class="w-12 h-12 bg-ods-light text-ods-8 rounded-xl flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-lg">Estrategia Booleana</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Construcción de cadenas mediante sintaxis normalizada de tesauro:
+                    </p>
+                    <div class="p-3 bg-gray-900 text-green-400 font-mono text-[11px] rounded-lg overflow-x-auto">
+                        ("expectativas salariales" OR "salario esperado") AND ("egresados universitarios" OR graduados) AND México
+                    </div>
+                </div>
+
+                <!-- Criterios -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm space-y-4">
+                    <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-filter"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-lg">Criterios e Inclusión</h4>
+                    <ul class="text-xs text-gray-600 space-y-2 list-disc list-inside">
+                        <li>Artículos de investigación indexados y revisados por pares.</li>
+                        <li>Informes oficiales de la ENOE (INEGI), ENE (UVM), OCDE y ONU.</li>
+                        <li>Delimitación temporal y temática directa sobre empleabilidad juvenil.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estado del Arte (Tabbed Interface) -->
+    <section id="estado-arte" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-ods-8 mb-2">Revisión Sistemática</h2>
+                <h3 class="text-3xl font-extrabold text-gray-900">Estado del Arte</h3>
+                <p class="text-gray-600 mt-2 text-sm">Comparativa de coincidencias, matices y áreas de oportunidad en la literatura científica.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex justify-center border-b border-gray-200 mb-8 overflow-x-auto">
+                <button onclick="switchTab('coincidencias')" id="tab-coincidencias" class="tab-btn tab-active px-6 py-3 text-sm font-semibold whitespace-nowrap focus:outline-none">
+                    <i class="fa-solid fa-check-double mr-2"></i> Coincidencias
+                </button>
+                <button onclick="switchTab('diferencias')" id="tab-diferencias" class="tab-btn px-6 py-3 text-sm font-semibold text-gray-500 hover:text-ods-8 whitespace-nowrap focus:outline-none">
+                    <i class="fa-solid fa-sliders mr-2"></i> Diferencias y Matices
+                </button>
+                <button onclick="switchTab('tendencias')" id="tab-tendencias" class="tab-btn px-6 py-3 text-sm font-semibold text-gray-500 hover:text-ods-8 whitespace-nowrap focus:outline-none">
+                    <i class="fa-solid fa-chart-line mr-2"></i> Tendencias y Vacíos
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="tab-content" class="bg-gray-50 rounded-2xl border border-gray-200 p-6 md:p-10">
+                <!-- Content Coincidencias -->
+                <div id="content-coincidencias" class="tab-panel space-y-4">
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Consenso en la Literatura Consultada</h4>
+                    <p class="text-gray-700 leading-relaxed text-sm">
+                        Las fuentes coinciden en que la obtención de un título universitario ya no asegura de forma automática un sueldo alto o una contratación inmediata acorde a la formación recibida.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                        <div class="bg-white p-5 rounded-xl border border-gray-200">
+                            <span class="text-xs font-bold text-ods-8">Reissova &amp; Simsova (2019) • Taylor (2007)</span>
+                            <p class="text-xs text-gray-600 mt-2">
+                                Concuerdan en que los estudiantes de grado tienden a sobreestimar de forma sistemática el valor monetario inicial de su educación universitaria.
+                            </p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-gray-200">
+                            <span class="text-xs font-bold text-ods-8">Burgos Flores (2008) • ENOE (INEGI) • ENE (UVM)</span>
+                            <p class="text-xs text-gray-600 mt-2">
+                                Confirman que el mercado laboral mexicano padece rigidez salarial y sobreeducación, situando las ofertas de entrada por debajo de las aspiraciones iniciales.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Diferencias (Hidden by default) -->
+                <div id="content-diferencias" class="tab-panel hidden space-y-4">
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Divergencias en los Factores Determinantes</h4>
+                    <p class="text-gray-700 leading-relaxed text-sm">
+                        Las divergencias entre los autores se centran en cuáles son los factores que determinan verdaderamente la prima salarial final.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                        <div class="bg-white p-5 rounded-xl border border-gray-200">
+                            <span class="text-xs font-bold text-blue-600">Área de Estudio vs. Habilidades Técnicas</span>
+                            <p class="text-xs text-gray-600 mt-2">
+                                Mientras Taylor (2007) sostiene que el área disciplinar (como STEM) define las expectativas, Wu et al. (2025) matizan que el título por sí solo no basta: el mercado retribuye únicamente las competencias aplicadas específicas.
+                            </p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-gray-200">
+                            <span class="text-xs font-bold text-blue-600">Origen Socioeconómico y Formación Dual</span>
+                            <p class="text-xs text-gray-600 mt-2">
+                                Estudios en México (Solís, 2012; Rubio Ugalde et al., 2022) subrayan que el origen socioeconómico y la experiencia previa modulan y ajustan de manera anticipada las expectativas del egresado a la realidad del mercado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Tendencias (Hidden by default) -->
+                <div id="content-tendencias" class="tab-panel hidden space-y-4">
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Patrones Emergentes y Áreas no Exploradas</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-5 rounded-xl border border-gray-200">
+                            <h5 class="font-bold text-gray-900 text-sm mb-2"><i class="fa-solid fa-arrow-trend-up text-green-600 mr-2"></i>Tendencias Observadas</h5>
+                            <p class="text-xs text-gray-600">
+                                Las organizaciones priorizan la práctica comprobada por encima del título, forzando a los graduados a aceptar remuneraciones bajas iniciales para ganar antigüedad y competencias.
+                            </p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-gray-200">
+                            <h5 class="font-bold text-gray-900 text-sm mb-2"><i class="fa-solid fa-magnifying-glass-chart text-ods-8 mr-2"></i>Vacíos de Investigación</h5>
+                            <p class="text-xs text-gray-600">
+                                Falta de estudios longitudinales que sigan el trayecto de ingresos durante los primeros 5-10 años de egreso, así como escasez de datos sobre aspectos psicológicos durante las negociaciones de sueldo locales.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hallazgos e Interpretación -->
+    <section id="hallazgos" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-ods-8 mb-2">Evidencia Empírica</h2>
+                <h3 class="text-3xl font-extrabold text-gray-900">Principales Hallazgos e Interpretación</h3>
+                <p class="text-gray-600 mt-2 text-sm">Resultados sintéticos derivados de las plantillas de recuperación y análisis formal.</p>
+            </div>
+
+            <!-- 3 Key Findings -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Hallazgo 1 -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="text-3xl font-extrabold text-ods-8">01</span>
+                            <span class="w-10 h-10 rounded-full bg-ods-light flex items-center justify-center text-ods-8 font-bold">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </span>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-base mb-3">Sobreestimación Monetaria</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Las expectativas salariales de los estudiantes universitarios a menudo sobreestiman el valor inicial de su educación en comparación con las ofertas vigentes en el mercado de trabajo.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-100 text-[11px] text-gray-500 font-semibold">
+                        Impacto: Frustración inicial al egresar
+                    </div>
+                </div>
+
+                <!-- Hallazgo 2 -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="text-3xl font-extrabold text-ods-8">02</span>
+                            <span class="w-10 h-10 rounded-full bg-ods-light flex items-center justify-center text-ods-8 font-bold">
+                                <i class="fa-solid fa-scale-unbalanced"></i>
+                            </span>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-base mb-3">Desbalance Oferta vs. Vacantes</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            En el contexto de México, la oferta de profesionistas calificados supera la cantidad de plazas disponibles que ofrecen salarios proporcionales a la preparación académica.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-100 text-[11px] text-gray-500 font-semibold">
+                        Contexto: Rigidez macroeconómica en México
+                    </div>
+                </div>
+
+                <!-- Hallazgo 3 -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="text-3xl font-extrabold text-ods-8">03</span>
+                            <span class="w-10 h-10 rounded-full bg-ods-light flex items-center justify-center text-ods-8 font-bold">
+                                <i class="fa-solid fa-gears"></i>
+                            </span>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-base mb-3">Demanda de Habilidades Técnicas</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Las primas salariales y la empleabilidad de los graduados están fuertemente condicionadas por la demanda de competencias especializadas más allá de poseer únicamente el título.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-100 text-[11px] text-gray-500 font-semibold">
+                        Requisito: Vinculación académica-práctica
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accordion Interpretation -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
+                <h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                    <i class="fa-solid fa-lightbulb text-amber-500 mr-2"></i> Interpretación Sistemática de los Resultados
+                </h4>
+                <div class="text-sm text-gray-700 space-y-3 leading-relaxed">
+                    <p>
+                        Los resultados demuestran que el desempleo juvenil y el descontento salarial no corresponden a una mera percepción subjetiva de las nuevas generaciones, sino a un problema estructural del sistema: <strong>lo que la universidad enseña y lo que el mercado laboral recompensa no están alineados.</strong>
+                    </p>
+                    <p>
+                        Para alcanzar la Meta 8.5 del ODS 8 (garantizar trabajo decente, productivo y sueldos justos), es indispensable acortar la brecha entre las competencias especializadas que demandan las empresas y la oferta de los planes universitarios en México.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discusión y Conclusiones -->
+    <section id="conclusiones" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block bg-ods-light text-ods-8 text-xs font-bold px-3 py-1 rounded-full uppercase">
+                        Síntesis de Investigación
+                    </div>
+                    <h2 class="text-3xl font-extrabold text-gray-900">Discusión y Respuesta a la Pregunta</h2>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        En respuesta a nuestra pregunta inicial, se concluye que las expectativas salariales de los egresados influyen de manera directa en su inserción laboral al actuar como un filtro que determina la aceptación o rechazo de las ofertas iniciales.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-sm">Respuesta a la Pregunta</h4>
+                                <p class="text-xs text-gray-600">El choque entre lo esperado y lo ofrecido eleva la frustración inicial y retarda la inserción laboral plena en empleos formales.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-sm">Cumplimiento de Objetivos</h4>
+                                <p class="text-xs text-gray-600">Se demostró que las primas salariales no dependen exclusivamente del grado académico, sino de la experiencia práctica y el dominio técnico.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 bg-slate-900 text-white rounded-3xl p-8 space-y-6 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-2 text-ods-light text-xs font-bold uppercase mb-2">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>Vinculación ODS 8</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Implicaciones para la Meta 8.5 de la ONU</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                            "Lograr el empleo pleno y productivo y el trabajo decente para todos los hombres y mujeres, incluidos los jóvenes, y la igualdad de remuneración por trabajo de igual valor."
+                        </p>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Una transición escuela-trabajo exitosa requiere un esfuerzo articulado: las universidades deben actualizar sus planes de estudio orientándolos a competencias aplicadas, mientras que el sector público y privado debe ofrecer estructuras salariales justas que reconozcan el esfuerzo académico.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 border-t border-white/10 flex justify-between items-center text-xs text-gray-400">
+                        <span>Cultura Digital UDLAP</span>
+                        <span>Práctica 10 • Noviembre 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referencias Bibliográficas (APA 7) -->
+    <section id="referencias" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-ods-8 mb-2">Fuentes Académicas</h2>
+                <h3 class="text-3xl font-extrabold text-gray-900">Referencias Bibliográficas (APA 7)</h3>
+                <p class="text-gray-600 mt-2 text-sm">Literatura científica, informes gubernamentales e institucionales validados en la investigación.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
+                <ol class="space-y-4 text-xs text-gray-700 divide-y divide-gray-100">
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Burgos Flores, B. (2008).</p>
+                        <p class="text-gray-600">Sobreeducación y desfase de conocimientos en el mercado laboral de profesionistas. <em>Revista de la Educación Superior</em>, 37(148), 57-68.</p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Centro de Opinión Pública UVM. (2023).</p>
+                        <p class="text-gray-600"><em>Encuesta Nacional de Egresados 2023</em>. Universidad del Valle de México. <a href="https://opinionpublica.uvm.mx/estudios/encuesta-nacional-de-egresados-2023/" target="_blank" class="text-ods-8 hover:underline">https://opinionpublica.uvm.mx/...</a></p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Espinal Betanzo, J. A. (2024).</p>
+                        <p class="text-gray-600">Formación dual a nivel técnico: efectos en la transición escuela-trabajo. <em>Estudios Sociológicos</em>, 42, e2636. <a href="https://doi.org/10.24201/es.2024v42.e2636" target="_blank" class="text-ods-8 hover:underline">https://doi.org/10.24201/es.2024v42.e2636</a></p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">García Viña, J. (2020).</p>
+                        <p class="text-gray-600">La situación del empleo de los jóvenes y una propuesta de políticas públicas para afrontar el desempleo juvenil. <em>Revista Latinoamericana de Derecho Social</em>, (30), 65-94.</p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Instituto Nacional de Estadística y Geografía. (2022).</p>
+                        <p class="text-gray-600"><em>Encuesta Nacional de Ocupación y Empleo (ENOE)</em>. INEGI. <a href="https://www.inegi.org.mx/programas/enoe/15ymas/" target="_blank" class="text-ods-8 hover:underline">https://www.inegi.org.mx/programas/enoe/15ymas/</a></p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Organisation for Economic Co-operation and Development. (2019).</p>
+                        <p class="text-gray-600"><em>Educación superior en México: Resultados y relevancia para el mercado laboral</em>. OECD Publishing. <a href="https://doi.org/10.1787/9789264309432-es" target="_blank" class="text-ods-8 hover:underline">https://doi.org/10.1787/9789264309432-es</a></p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Organización de las Naciones Unidas. (s. f.).</p>
+                        <p class="text-gray-600"><em>Objetivo 8: Promover el crecimiento económico inclusivo y sostenible, el empleo y el trabajo decente para todos</em>. ONU. <a href="https://www.un.org/sustainabledevelopment/es/economic-growth/" target="_blank" class="text-ods-8 hover:underline">https://www.un.org/sustainabledevelopment/es/economic-growth/</a></p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Reissova, A., &amp; Simsova, J. (2019).</p>
+                        <p class="text-gray-600">The value of education in the labour market. How realistic are student expectations? <em>Business and Economic Horizons</em>, 15(1), 20-36. <a href="https://doi.org/10.15208/beh.2019.2" target="_blank" class="text-ods-8 hover:underline">https://doi.org/10.15208/beh.2019.2</a></p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Rubio Ugalde, G. J., Razo Zamora, L. A., &amp; Loredo Castillo, L. A. (2022).</p>
+                        <p class="text-gray-600">Impacto de Jóvenes Construyendo el Futuro y desempleo juvenil de México. <em>Política y Cultura</em>, (57), 109-134.</p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Solís, P. (2012).</p>
+                        <p class="text-gray-600">Desigualdad social y transición de la escuela al trabajo en la Ciudad de México. <em>Estudios Sociológicos</em>, 30(90), 641-680.</p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Taylor, D. (2007).</p>
+                        <p class="text-gray-600">Employment Preferences and Salary Expectations of Students in Science and Engineering. <em>Bioscience</em>, 57(2), 175-185. <a href="https://doi.org/10.1641/B570212" target="_blank" class="text-ods-8 hover:underline">https://doi.org/10.1641/B570212</a></p>
+                    </li>
+                    <li class="pt-3">
+                        <p class="font-semibold text-gray-900">Wu, Q., Cheng, X., Wang, W., &amp; Wang, C. (2025).</p>
+                        <p class="text-gray-600">Employment Skills Demand and Skill Premiums: What Engineering Graduates Does the Market Require? <em>European Journal of Education</em>, 60(3). <a href="https://doi.org/10.1111/ejed.70195" target="_blank" class="text-ods-8 hover:underline">https://doi.org/10.1111/ejed.70195</a></p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bitácora y Transparencia en Uso de IA -->
+    <section id="ia-bitacora" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-900 rounded-3xl p-8 md:p-12 text-white border border-gray-800">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-ods-8 flex items-center justify-center font-bold text-xl">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Declaración de Uso Ético de Inteligencia Artificial</h3>
+                        <p class="text-xs text-gray-400">Manual 3 ChatGPT • Cultura Digital UDLAP</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-gray-300 leading-relaxed mb-8">
+                    <div class="bg-gray-800/60 p-5 rounded-xl border border-gray-700">
+                        <h4 class="font-bold text-white text-sm mb-2"><i class="fa-solid fa-comments text-ods-light mr-1"></i> Prompts y Contexto</h4>
+                        <p>Se utilizaron prompts estructurados (Manual 3) para resumir los archivos académicos, diseñar la arquitectura de información y prototipar el sitio web.</p>
+                    </div>
+
+                    <div class="bg-gray-800/60 p-5 rounded-xl border border-gray-700">
+                        <h4 class="font-bold text-white text-sm mb-2"><i class="fa-solid fa-user-check text-ods-light mr-1"></i> Criterio Humano</h4>
+                        <p>La IA funcionó como herramienta de apoyo técnico; el Equipo 4 validó la veracidad de datos, redactó las conclusiones y verificó la traza documental.</p>
+                    </div>
+
+                    <div class="bg-gray-800/60 p-5 rounded-xl border border-gray-700">
+                        <h4 class="font-bold text-white text-sm mb-2"><i class="fa-solid fa-shield-halved text-ods-light mr-1"></i> Sin Invención de Datos</h4>
+                        <p>Toda la información proviene exclusivamente de los documentos formales aprobados (Prácticas 1 a 10). No se inventaron fuentes ni citas estadísticas.</p>
+                    </div>
+                </div>
+
+                <div class="text-center pt-4 border-t border-gray-800 text-xs text-gray-500">
+                    Equipo 4 • Universidad de las Américas Puebla (UDLAP) • Todos los derechos reservados 2026
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+    <footer class="bg-slate-950 text-gray-400 py-8 border-t border-gray-900 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+            <p>Proyecto Final de Investigación - Cultura Digital (DIG0013) • Sección 18</p>
+            <p class="text-gray-500">Docente: Mtra. Dulce Karina Trejo Tlapa • UDLAP Otoño 2026</p>
+            <p class="pt-3 text-gray-400 leading-relaxed">
+                <a href="https://diegoo178.github.io/prueba-pagina/" target="_blank" class="text-gray-200 hover:text-white underline transition">EXPECTATIVAS SALARIALES DE EGRESADOS UNIVERSITARIOS Y LA OFERTA DEL MERCADO LABORAL EN MÉXICO</a> © 2026 by <a href="https://example.com" target="_blank" class="text-gray-200 hover:text-white underline transition">Equipo 4</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" class="text-gray-200 hover:text-white underline transition">CC BY-NC-ND 4.0</a>
+                <span class="inline-flex items-center align-middle">
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" class="inline invert opacity-80" style="max-width: 1em; max-height: 1em; margin-left: .2em;">
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" class="inline invert opacity-80" style="max-width: 1em; max-height: 1em; margin-left: .2em;">
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC" class="inline invert opacity-80" style="max-width: 1em; max-height: 1em; margin-left: .2em;">
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="ND" class="inline invert opacity-80" style="max-width: 1em; max-height: 1em; margin-left: .2em;">
+                </span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Tab Switching Logic for Estado del Arte
+        function switchTab(tabName) {
+            // Hide all tab panels
+            var panels = document.querySelectorAll('.tab-panel');
+            for (var i = 0; i < panels.length; i++) {
+                panels[i].classList.add('hidden');
+            }
+
+            // Deactivate all tab buttons
+            var buttons = document.querySelectorAll('.tab-btn');
+            for (var j = 0; j < buttons.length; j++) {
+                buttons[j].classList.remove('tab-active');
+                buttons[j].classList.add('text-gray-500');
+            }
+
+            // Show target panel and activate button
+            var targetContent = document.getElementById('content-' + tabName);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+            }
+            var activeBtn = document.getElementById('tab-' + tabName);
+            if (activeBtn) {
+                activeBtn.classList.add('tab-active');
+                activeBtn.classList.remove('text-gray-500');
+            }
+        }
+    </script>
+</body>
+</html>
